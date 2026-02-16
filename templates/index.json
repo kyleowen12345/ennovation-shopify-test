@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "hero_jVaWmY": {
       "type": "hero",
@@ -65,6 +66,7 @@
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
+        "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -281,10 +283,73 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "kw_as_seen_in_RCCpKY": {
+      "type": "kw-as-seen-in",
+      "blocks": {
+        "logo_46A8Xh": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_13.png",
+            "alt_text": "Allure",
+            "link": ""
+          }
+        },
+        "logo_U7JnYT": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_14.png",
+            "alt_text": "NBC",
+            "link": ""
+          }
+        },
+        "logo_nfFyDK": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_16.png",
+            "alt_text": "FOX",
+            "link": ""
+          }
+        },
+        "logo_HCUxLg": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_58.png",
+            "alt_text": "Vogue",
+            "link": ""
+          }
+        },
+        "logo_CJQ6Kj": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/1-removebg-preview_1.png",
+            "alt_text": "Better Homes & Gardens",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_46A8Xh",
+        "logo_U7JnYT",
+        "logo_nfFyDK",
+        "logo_HCUxLg",
+        "logo_CJQ6Kj"
+      ],
+      "name": "KW As Seen In",
+      "settings": {
+        "heading": "As Seen In",
+        "bg_color": "#ffffff",
+        "bg_image": "shopify://shop_images/384a24d87439557759fc6caf0ba0f8402e4803e4.png",
+        "scroll_speed": 20,
+        "logo_height": 24,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
     }
   },
   "order": [
     "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "product_list_fa6P9H",
+    "kw_as_seen_in_RCCpKY"
   ]
 }
