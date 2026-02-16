@@ -1,0 +1,18 @@
+{%- comment -%}
+  Renders a feature bullet with check icon, bold label, and description.
+
+  Usage:
+    {% render 'kw-feature-item', label: 'Clinically-Tested:', description: 'Niacinamide and Biotin...' %}
+
+  Params:
+    - label: bold text
+    - description: body text
+{%- endcomment -%}
+
+<div class="kw-feature-item">
+  {% render 'kw-icon-check' %}
+  <p class="kw-feature-item__text">
+    <span class="kw-feature-item__label">{{ label }}</span>
+    {{ description }}
+  </p>
+</div>

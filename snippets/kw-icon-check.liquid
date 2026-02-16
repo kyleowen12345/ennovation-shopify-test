@@ -1,0 +1,11 @@
+{%- comment -%}
+  Renders a green circled checkmark SVG.
+
+  Usage: {% render 'kw-icon-check' %}
+  Params: size (default 20), color (default #6B8F63)
+{%- endcomment -%}
+
+<svg class="kw-icon-check" width="{{ size | default: 20 }}" height="{{ size | default: 20 }}" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <circle cx="10" cy="10" r="9" stroke="{{ color | default: '#6B8F63' }}" stroke-width="1.2"/>
+  <path d="M6 10L9 13L14 7" stroke="{{ color | default: '#6B8F63' }}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

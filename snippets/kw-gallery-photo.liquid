@@ -1,0 +1,21 @@
+{%- comment -%}
+  Renders a gallery photo.
+
+  Usage:
+    {% render 'kw-gallery-photo', image: block.settings.image, alt_text: block.settings.alt_text %}
+
+  Params:
+    - image: image object
+    - alt_text: string
+{%- endcomment -%}
+
+{% if image != blank %}
+  <div class="kw-gallery-photo">
+    <img
+      src="{{ image | image_url: width: 400 }}"
+      alt="{{ alt_text | default: 'Community photo' }}"
+      class="kw-gallery-photo__img"
+      loading="lazy"
+    >
+  </div>
+{% endif %}

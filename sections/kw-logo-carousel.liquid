@@ -1,7 +1,7 @@
-{{ 'kw-as-seen-in.css' | asset_url | stylesheet_tag }}
+{{ 'kw-logo-carousel.css' | asset_url | stylesheet_tag }}
 
 <section
-  class="kw-as-seen-in"
+  class="kw-logo-carousel"
   style="
     {% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}
     padding-top: {{ section.settings.padding_top }}px;
@@ -9,45 +9,38 @@
   "
   {{ section.shopify_attributes }}
 >
-  {%- comment -%} Optional background image {%- endcomment -%}
   {% if section.settings.bg_image != blank %}
     <img
       src="{{ section.settings.bg_image | image_url: width: 1920 }}"
       alt=""
-      class="kw-as-seen-in__bg"
+      class="kw-logo-carousel__bg"
       loading="lazy"
     >
   {% endif %}
 
-  <div class="kw-as-seen-in__inner">
+  <div class="kw-logo-carousel__inner">
     {% if section.settings.heading != blank %}
-      <p class="kw-as-seen-in__heading">{{ section.settings.heading }}</p>
+      <p class="kw-logo-carousel__heading">{{ section.settings.heading }}</p>
     {% endif %}
 
-    {%- comment -%} Marquee wrapper — duplicates logos for seamless loop {%- endcomment -%}
-    <div class="kw-as-seen-in__marquee" style="--marquee-speed: {{ section.settings.scroll_speed }}s;">
-      <div class="kw-as-seen-in__track">
-        {%- comment -%} First set of logos {%- endcomment -%}
-        {% for block in section.blocks %}
-          <div class="kw-as-seen-in__slide" {{ block.shopify_attributes }}>
-            {% render 'kw-logo-item',
-              logo: block.settings.logo,
-              alt_text: block.settings.alt_text,
-              link: block.settings.link
-            %}
-          </div>
-        {% endfor %}
-
-        {%- comment -%} Duplicate set for seamless loop {%- endcomment -%}
-        {% for block in section.blocks %}
-          <div class="kw-as-seen-in__slide" aria-hidden="true">
-            {% render 'kw-logo-item',
-              logo: block.settings.logo,
-              alt_text: block.settings.alt_text,
-              link: block.settings.link
-            %}
-          </div>
-        {% endfor %}
+    <div class="kw-logo-carousel__marquee">
+      <div class="kw-logo-carousel__track">
+        {%- comment -%} Set 1 — uses kw-logo-item snippet per block {%- endcomment -%}
+        <div class="kw-logo-carousel__items">
+          {% for block in section.blocks %}
+            <div {{ block.shopify_attributes }}>
+              {% render 'kw-logo-item', logo: block.settings.logo, alt_text: block.settings.alt_text, link: block.settings.link %}
+            </div>
+          {% endfor %}
+        </div>
+        {%- comment -%} Set 2 — duplicate for seamless infinite loop {%- endcomment -%}
+        <div class="kw-logo-carousel__items" aria-hidden="true">
+          {% for block in section.blocks %}
+            <div>
+              {% render 'kw-logo-item', logo: block.settings.logo, alt_text: block.settings.alt_text, link: block.settings.link %}
+            </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
@@ -55,9 +48,9 @@
 
 {% schema %}
 {
-  "name": "KW As Seen In",
+  "name": "KW Logo Carousel",
   "tag": "section",
-  "class": "kw-as-seen-in-section",
+  "class": "kw-logo-carousel-section",
   "settings": [
     {
       "type": "text",
@@ -82,31 +75,7 @@
     },
     {
       "type": "header",
-      "content": "Carousel"
-    },
-    {
-      "type": "range",
-      "id": "scroll_speed",
-      "label": "Scroll speed (seconds)",
-      "min": 10,
-      "max": 60,
-      "step": 5,
-      "default": 20,
-      "unit": "s"
-    },
-    {
-      "type": "header",
       "content": "Spacing"
-    },
-    {
-      "type": "range",
-      "id": "logo_height",
-      "label": "Logo height (px)",
-      "min": 14,
-      "max": 40,
-      "step": 2,
-      "default": 24,
-      "unit": "px"
     },
     {
       "type": "range",
@@ -132,7 +101,7 @@
   "blocks": [
     {
       "type": "logo",
-      "name": "Press Logo",
+      "name": "Logo",
       "settings": [
         {
           "type": "image_picker",
@@ -155,7 +124,7 @@
   ],
   "presets": [
     {
-      "name": "KW As Seen In",
+      "name": "KW Logo Carousel",
       "blocks": [
         { "type": "logo", "settings": { "alt_text": "Allure" } },
         { "type": "logo", "settings": { "alt_text": "NBC" } },
