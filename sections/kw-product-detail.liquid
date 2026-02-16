@@ -26,15 +26,27 @@
       </div>
 
       <div class="kw-pdp__thumbs">
-        {% for block in section.blocks %}
-          {% if block.type == 'thumbnail' %}
-            <div class="kw-pdp__thumb{% if forloop.first %} kw-pdp__thumb--active{% endif %}" data-thumb data-thumb-src="{{ block.settings.image | image_url: width: 800 }}" {{ block.shopify_attributes }}>
-              {% if block.settings.image != blank %}
-                <img src="{{ block.settings.image | image_url: width: 150 }}" alt="Product view" loading="lazy">
-              {% endif %}
-            </div>
-          {% endif %}
-        {% endfor %}
+        {% if product != blank %}
+          {%- comment -%} Auto-pull from product media {%- endcomment -%}
+          {% for media in product.media %}
+            {% if media.media_type == 'image' %}
+              <div class="kw-pdp__thumb{% if forloop.first %} kw-pdp__thumb--active{% endif %}" data-thumb data-thumb-src="{{ media | image_url: width: 800 }}">
+                <img src="{{ media | image_url: width: 150 }}" alt="{{ media.alt | default: product.title }}" loading="lazy">
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          {%- comment -%} Fallback to manual thumbnail blocks {%- endcomment -%}
+          {% for block in section.blocks %}
+            {% if block.type == 'thumbnail' %}
+              <div class="kw-pdp__thumb{% if forloop.first %} kw-pdp__thumb--active{% endif %}" data-thumb data-thumb-src="{{ block.settings.image | image_url: width: 800 }}" {{ block.shopify_attributes }}>
+                {% if block.settings.image != blank %}
+                  <img src="{{ block.settings.image | image_url: width: 150 }}" alt="Product view" loading="lazy">
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
 
