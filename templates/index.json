@@ -138,7 +138,7 @@
       ],
       "name": "KW Product Detail",
       "settings": {
-        "product": "keewee-revitalizing-shampoo",
+        "product": "keewee-revitalizing-shampoo-1",
         "title": "KeeWee Revitalizing Shampoo",
         "price": "$34.99",
         "size_info": "(10.1 fl.oz / 300mL)",
@@ -278,7 +278,7 @@
         "instagram_link": "",
         "facebook_handle": "kewee",
         "facebook_link": "",
-        "bg_color": "#E8E3DB",
+        "bg_color": "#e8e3db",
         "padding_top": 48,
         "padding_bottom": 0
       }
@@ -304,7 +304,7 @@
       "settings": {
         "heading": "See Why Top Dermatologist",
         "heading_highlight": "Recommend KeeWee",
-        "bg_color": "#F5F0EB",
+        "bg_color": "#f5f0eb",
         "padding_top": 60,
         "padding_bottom": 60
       }
