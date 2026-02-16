@@ -286,8 +286,8 @@
         "heading": "See Why Top Dermatologist",
         "heading_highlight": "Recommend KeeWee",
         "bg_color": "#f5f0eb",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 80,
+        "padding_bottom": 100
       }
     },
     "kw_feature_grid_UEMwNw": {
@@ -348,7 +348,7 @@
       "settings": {
         "bg_image": "shopify://shop_images/ab7d1c1ead57330057cfd1d255445d7426e93eae.png",
         "padding_top": 80,
-        "padding_bottom": 60
+        "padding_bottom": 80
       }
     }
   },
