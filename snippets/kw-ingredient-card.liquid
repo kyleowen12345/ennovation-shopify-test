@@ -1,24 +1,30 @@
 {%- comment -%}
   Renders an ingredient card with icon, title, and description.
 
-  Usage:
-    {% render 'kw-ingredient-card', icon: block.settings.icon, title: block.settings.title, description: block.settings.description %}
-
   Params:
     - icon: image object
     - title: string
     - description: string
+    - bg_color: color string
+    - title_color: color string
+    - text_color: color string
 {%- endcomment -%}
 
-<div class="kw-ingredient-card">
+<div class="kw-ingredient-card" style="
+  {% if bg_color != blank %}background-color: {{ bg_color }};{% endif %}
+">
   {% if icon != blank %}
-    <img
-      src="{{ icon | image_url: width: 80 }}"
-      alt=""
-      class="kw-ingredient-card__icon"
-      loading="lazy"
-    >
+    <div class="kw-ingredient-card__icon-wrap">
+      <img
+        src="{{ icon | image_url: width: 80 }}"
+        alt=""
+        class="kw-ingredient-card__icon"
+        loading="lazy"
+      >
+    </div>
   {% endif %}
-  <h4 class="kw-ingredient-card__title">{{ title }}</h4>
-  <p class="kw-ingredient-card__desc">{{ description }}</p>
+  <div class="kw-ingredient-card__text">
+    <h4 class="kw-ingredient-card__title" {% if title_color != blank %}style="color: {{ title_color }};"{% endif %}>{{ title }}</h4>
+    <p class="kw-ingredient-card__desc" {% if text_color != blank %}style="color: {{ text_color }};"{% endif %}>{{ description }}</p>
+  </div>
 </div>
