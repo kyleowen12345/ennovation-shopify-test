@@ -16,9 +16,9 @@
         </button>
 
         {% if product != blank and product.featured_image != blank %}
-          <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" id="kw-main-img" loading="eager">
+          <img src="{{ product.featured_image | image_url: width: 800 }}" width="100%" height="100%" alt="{{ product.title }}" id="kw-main-img" loading="eager">
         {% elsif section.settings.main_image != blank %}
-          <img src="{{ section.settings.main_image | image_url: width: 800 }}" alt="{{ section.settings.title }}" id="kw-main-img" loading="eager">
+          <img src="{{ section.settings.main_image | image_url: width: 800 }}" width="100%" height="100%" alt="{{ section.settings.title }}" id="kw-main-img" loading="eager">
         {% else %}
           <div class="kw-pdp__placeholder">Product Image</div>
         {% endif %}
@@ -33,7 +33,7 @@
           {% for media in product.media %}
             {% if media.media_type == 'image' %}
               <div class="kw-pdp__thumb{% if forloop.first %} kw-pdp__thumb--active{% endif %}" data-thumb data-thumb-src="{{ media | image_url: width: 800 }}">
-                <img src="{{ media | image_url: width: 150 }}" alt="{{ media.alt | default: product.title }}" loading="lazy">
+                <img src="{{ media | image_url: width: 150 }}" alt="{{ media.alt | default: product.title }}" width="100%" height="100%" loading="lazy">
               </div>
             {% endif %}
           {% endfor %}
@@ -42,7 +42,7 @@
             {% if block.type == 'thumbnail' %}
               <div class="kw-pdp__thumb{% if forloop.first %} kw-pdp__thumb--active{% endif %}" data-thumb data-thumb-src="{{ block.settings.image | image_url: width: 800 }}" {{ block.shopify_attributes }}>
                 {% if block.settings.image != blank %}
-                  <img src="{{ block.settings.image | image_url: width: 150 }}" alt="Product view" loading="lazy">
+                  <img src="{{ block.settings.image | image_url: width: 150 }}" width="100%" height="100%" alt="Product view" loading="lazy">
                 {% endif %}
               </div>
             {% endif %}
@@ -71,7 +71,7 @@
       <div class="kw-pdp__cart-row">
         <div class="kw-pdp__qty">
           <button class="kw-pdp__qty-btn" data-qty-decrease>–</button>
-          <input type="number" class="kw-pdp__qty-input" value="1" min="1" max="100" >
+          <input type="number" class="kw-pdp__qty-input" value="1" min="1" max="100">
           <button class="kw-pdp__qty-btn" data-qty-increase>+</button>
         </div>
         {% if product != blank %}
@@ -138,12 +138,16 @@
             <span class="kw-pdp__shipping-icon">+</span>
           </div>
           <div class="kw-pdp__shipping-body" data-collapsible-body style="display:none;">
-            {% if section.settings.shipping_line_1 != blank %}
-              <p>{{ section.settings.shipping_line_1 }}</p>
-            {% endif %}
-            {% if section.settings.shipping_line_2 != blank %}
-              <p>{{ section.settings.shipping_line_2 }}</p>
-            {% endif %}
+            {% for block in section.blocks %}
+              {% if block.type == 'shipping_line' %}
+                <div class="kw-pdp__shipping-row" {{ block.shopify_attributes }}>
+                  {% if block.settings.icon != blank %}
+                    <img src="{{ block.settings.icon | image_url: width: 40 }}" alt="" width="20" height="20" class="kw-pdp__shipping-row-icon" loading="lazy">
+                  {% endif %}
+                  <p>{{ block.settings.text }}</p>
+                </div>
+              {% endif %}
+            {% endfor %}
           </div>
         </div>
       {% endif %}
@@ -164,7 +168,7 @@
     document.querySelectorAll('[data-qty-increase]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var input = this.parentElement.querySelector('.kw-pdp__qty-input');
-        input.value = Math.min(parseInt(input.value) + 1, 10);
+        input.value = Math.min(parseInt(input.value) + 1, 100);
       });
     });
 
@@ -290,18 +294,6 @@
       "default": "Shipping"
     },
     {
-      "type": "text",
-      "id": "shipping_line_1",
-      "label": "Shipping line 1",
-      "default": "Free Shipping on all orders"
-    },
-    {
-      "type": "text",
-      "id": "shipping_line_2",
-      "label": "Shipping line 2",
-      "default": "Buy Now and Get it by Friday, June 7"
-    },
-    {
       "type": "header",
       "content": "Spacing"
     },
@@ -385,15 +377,33 @@
           "default": false
         },
         {
-          "type": "text",
+          "type": "checkbox",
           "id": "save_badge",
-          "label": "Save badge text"
+          "label": "Show save badge",
+          "default": false
         },
         {
           "type": "checkbox",
           "id": "free_shipping",
           "label": "Free shipping",
           "default": false
+        }
+      ]
+    },
+    {
+      "type": "shipping_line",
+      "name": "Shipping Line",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free Shipping on all orders"
         }
       ]
     }
@@ -414,9 +424,11 @@
         { "type": "feature", "settings": { "label": "Certified Vegan Formula:", "description": "The finest natural ingredients, free from harsh chemicals" } },
         { "type": "feature", "settings": { "label": "Refreshing Scent:", "description": "A spa-like fragrance that uplifts your senses without overpowering artificial scents" } },
         { "type": "subscription", "settings": { "name": "Single Bottle", "price": "$34.99", "is_default": true } },
-        { "type": "subscription", "settings": { "name": "1-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$29.99", "save_badge": "save over 14%" } },
-        { "type": "subscription", "settings": { "name": "2-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$55.00", "save_badge": "save over 20%", "free_shipping": true } },
-        { "type": "subscription", "settings": { "name": "3-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$78.00", "free_shipping": true } }
+        { "type": "subscription", "settings": { "name": "1-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$29.99", "save_badge": true } },
+        { "type": "subscription", "settings": { "name": "2-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$55.00", "save_badge": true, "free_shipping": true } },
+        { "type": "subscription", "settings": { "name": "3-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$78.00", "free_shipping": true } },
+        { "type": "shipping_line", "settings": { "text": "Free Shipping on all orders" } },
+        { "type": "shipping_line", "settings": { "text": "Buy Now and Get it by Friday, June 7" } }
       ]
     }
   ]

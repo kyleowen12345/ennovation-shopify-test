@@ -9,7 +9,7 @@
 
 .kw-community__heading {
   font-family: "Lora", Georgia, "Times New Roman", serif;
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 400;
   color: #1a1a1a;
   margin: 0 0 12px;
@@ -100,11 +100,24 @@
 }
 
 @media (max-width: 749px) {
-  .kw-community__heading {
-    font-size: 32px;
+  .kw-community__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    overflow-x: visible;
+    width: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 15px;
   }
+
+  .kw-community__grid > * {
+    flex-shrink: unset;
+  }
+
   .kw-gallery-photo {
-    width: 160px;
+    width: 100%;
     height: 200px;
   }
 }

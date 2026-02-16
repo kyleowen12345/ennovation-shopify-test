@@ -256,7 +256,7 @@
 }
 .kw-icon-check {
   flex-shrink: 0;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 /* Subscriptions */
@@ -404,24 +404,22 @@
   cursor: pointer;
 }
 
-.kw-pdp__shipping-icon {
-  font-size: 18px;
-  color: #888;
+.kw-pdp__shipping-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 
-.kw-pdp__shipping-body {
-  padding: 0 0 14px;
-  font-family:
-    "Public Sans",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
-  font-size: 14px;
-  color: #555;
-  line-height: 1.6;
+.kw-pdp__shipping-row p {
+  margin: 0;
 }
-.kw-pdp__shipping-body p {
-  margin: 0 0 4px;
+
+.kw-pdp__shipping-row-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 /* Mobile */
