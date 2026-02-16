@@ -345,10 +345,42 @@
   text-transform: uppercase;
 }
 
-.kw-sub-option__badge--save {
-  background: #c0392b;
-  color: #fff;
+.kw-badge--save {
+  position: absolute;
+  top: -1px;
+  right: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 20px;
+  pointer-events: none;
 }
+
+.kw-badge__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.kw-badge__text {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-family:
+    "Public Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  padding: 0 20px 0 20px;
+}
+
 .kw-sub-option__badge--ship {
   background: #c0392b;
   color: #fff;

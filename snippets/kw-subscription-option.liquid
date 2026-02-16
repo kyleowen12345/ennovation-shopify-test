@@ -4,7 +4,7 @@
   Params:
     - name, detail, price: strings
     - active: boolean
-    - save_badge: text (optional)
+    - save_text: text 
     - free_shipping: boolean
 {%- endcomment -%}
 
@@ -16,8 +16,13 @@
       <div class="kw-sub-option__detail">{{ detail }}</div>
     {% endif %}
     <div class="kw-sub-option__badges">
-      {% if save_badge != blank %}
-        <img src="{{ 'save-icon.svg' | asset_url }}" alt="{{ save_badge }}" width="100%" height="100%" class="kw-sub-option__badge-img save" loading="lazy">
+   {% if save_text != blank %}
+        <span class="kw-badge kw-badge--save">
+          <svg class="kw-badge__bg" viewBox="0 0 100 22" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0H59.908C67.5252 0 75.033 1.81424 81.8097 5.29255C85.387 7.12867 88.6756 9.47966 91.5704 12.2704L92.3937 13.0642C93.927 14.5423 95.3363 16.1439 96.6074 17.8527L99.0969 21.1992H16.8196C16.0102 21.1992 15.2805 20.7113 14.9713 19.9632L14.8045 19.5596C12.1787 13.2067 8.19137 7.50705 3.12352 2.86258L0 0Z" fill="#D9A845"/>
+          </svg>
+          <span class="kw-badge__text">{{ save_text }}</span>
+        </span>
       {% endif %}
       {% if free_shipping %}
         <div class="kw-sub-option__free-shipping">
