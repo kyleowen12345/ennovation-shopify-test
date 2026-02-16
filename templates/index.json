@@ -82,7 +82,7 @@
             "price": "$34.99",
             "is_default": true,
             "save_badge": "",
-            "shipping_badge": ""
+            "free_shipping": false
           }
         },
         "subscription_9Baxnm": {
@@ -93,7 +93,7 @@
             "price": "$29.99",
             "is_default": false,
             "save_badge": "save over 14%",
-            "shipping_badge": ""
+            "free_shipping": true
           }
         },
         "subscription_pHzb8m": {
@@ -104,7 +104,7 @@
             "price": "$55.00",
             "is_default": false,
             "save_badge": "save over 20%",
-            "shipping_badge": "FREE SHIPPING"
+            "free_shipping": false
           }
         },
         "subscription_JD9tJ4": {
@@ -115,7 +115,7 @@
             "price": "$78.00",
             "is_default": false,
             "save_badge": "",
-            "shipping_badge": "FREE SHIPPING"
+            "free_shipping": false
           }
         }
       },
@@ -146,7 +146,9 @@
         "about_heading": "About KeeWee",
         "shipping_heading": "Shipping",
         "shipping_line_1": "Free Shipping on all orders",
-        "shipping_line_2": "Buy Now and Get it by Friday, June 7"
+        "shipping_line_2": "Buy Now and Get it by Friday, June 7",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "kw_logo_carousel_qzUDWM": {
@@ -279,6 +281,7 @@
         "instagram_link": "",
         "facebook_handle": "kewee",
         "facebook_link": "",
+        "highlight_color": "#c9a89a",
         "bg_color": "#e8e3db",
         "padding_top": 48,
         "padding_bottom": 0
@@ -291,7 +294,6 @@
           "type": "testimonial",
           "settings": {
             "photo": "shopify://shop_images/Group_1000003611.png",
-            "product_photo": "shopify://shop_images/Group_1000003612.png",
             "quote": "Many of my patients come to me after struggling with hair thinning and are looking for safe, effective alternatives. KeeWee Shampoo is an excellent choice for improving hair density and health. Its scientifically backed ingredients are gentle yet potent, addressing key concerns like shedding and scalp health.",
             "name": "Dr. Ashley Magovern",
             "title": "Dermatologist in Manhattan Beach, California"
@@ -318,7 +320,10 @@
           "settings": {
             "icon": "shopify://shop_images/Vector.png",
             "title": "Viola Verecunda",
-            "description": "Also known as hidden violet, this extract supercharges hair growth without harsh, harmful chemicals."
+            "description": "Also known as hidden violet, this extract supercharges hair growth without harsh, harmful chemicals.",
+            "bg_color": "#ffffff1a",
+            "title_color": "#ffffff",
+            "text_color": "#ffffff"
           }
         },
         "card_XcCPE4": {
@@ -326,7 +331,10 @@
           "settings": {
             "icon": "shopify://shop_images/Vector_1.png",
             "title": "Green Tea Extract",
-            "description": "Rich in antioxidants, green tea extract helps protect hair from damage by free radicals and reduces follicle inflammation."
+            "description": "Rich in antioxidants, green tea extract helps protect hair from damage by free radicals and reduces follicle inflammation.",
+            "bg_color": "#ffffff1a",
+            "title_color": "#ffffff",
+            "text_color": "#ffffff"
           }
         },
         "card_49XgBm": {
@@ -334,7 +342,10 @@
           "settings": {
             "icon": "shopify://shop_images/Vector_2.png",
             "title": "Grape Extract",
-            "description": "Helps stimulate hair growth by enhancing scalp circulation and triggering the release of the growth factor responsible for healing."
+            "description": "Helps stimulate hair growth by enhancing scalp circulation and triggering the release of the growth factor responsible for healing.",
+            "bg_color": "#ffffff1a",
+            "title_color": "#ffffff",
+            "text_color": "#ffffff"
           }
         },
         "card_mkEc44": {
@@ -342,7 +353,10 @@
           "settings": {
             "icon": "shopify://shop_images/Group_1000003581.png",
             "title": "Gingko Biloba",
-            "description": "Supports improved circulation to deliver more nutrients to each hair follicle and encourage growth"
+            "description": "Supports improved circulation to deliver more nutrients to each hair follicle and encourage growth",
+            "bg_color": "#ffffff1a",
+            "title_color": "#ffffff",
+            "text_color": "#ffffff"
           }
         }
       },
