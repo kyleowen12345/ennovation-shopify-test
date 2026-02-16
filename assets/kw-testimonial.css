@@ -1,0 +1,138 @@
+/* Fonts — Lora + Public Sans from Google */
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Public+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap");
+
+.kw-testimonial-section {
+  overflow: hidden;
+}
+
+.kw-testimonial-section__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Heading — Lora 400 Italic 48px */
+.kw-testimonial-section__heading {
+  font-family: "Lora", Georgia, serif;
+  font-size: 48px;
+  font-weight: 400;
+  font-style: italic;
+  color: #1a1a1a;
+  text-align: center;
+  line-height: 119%;
+  margin: 0 0 48px;
+}
+
+/* Highlight — Lora 500 Italic */
+.kw-testimonial-section__highlight {
+  display: block;
+  font-family: "Lora", Georgia, serif;
+  font-weight: 500;
+  font-style: italic;
+  color: #c9a89a;
+}
+
+/* Testimonial layout */
+.kw-testimonial {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Combined photo */
+.kw-testimonial__photo-wrap {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.kw-testimonial__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Quote — Public Sans 300 Italic 22px */
+.kw-testimonial__quote {
+  font-family:
+    "Public Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  font-style: italic;
+  color: #585858;
+  line-height: 38px;
+  margin: 0 0 28px;
+  padding: 0;
+  border: none;
+}
+
+/* Name — Public Sans 600 24px */
+.kw-testimonial__name {
+  font-family:
+    "Public Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin: 0 0 4px;
+}
+
+/* Title */
+.kw-testimonial__title {
+  font-family:
+    "Public Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #888;
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 749px) {
+  .kw-testimonial-section__container {
+    padding: 0 16px;
+  }
+
+  .kw-testimonial-section__heading {
+    margin-bottom: 32px;
+  }
+
+  .kw-testimonial {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .kw-testimonial__photo-wrap {
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .kw-testimonial__quote {
+    margin-bottom: 0px;
+    margin-top: 40px;
+  }
+
+  .kw-testimonial__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kw-testimonial__name {
+    order: -2;
+  }
+
+  .kw-testimonial__title {
+    order: -1;
+  }
+}

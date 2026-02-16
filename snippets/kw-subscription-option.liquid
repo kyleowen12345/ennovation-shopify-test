@@ -1,0 +1,30 @@
+{%- comment -%}
+  Renders a subscription tier radio option.
+
+  Params:
+    - name, detail, price: strings
+    - active: boolean
+    - save_badge: text (optional)
+    - free_shipping: boolean
+{%- endcomment -%}
+
+<div class="kw-sub-option{% if active %} kw-sub-option--active{% endif %}" data-sub-option>
+  <div class="kw-sub-option__radio"></div>
+  <div class="kw-sub-option__info">
+    <div class="kw-sub-option__name">{{ name }}</div>
+    {% if detail != blank %}
+      <div class="kw-sub-option__detail">{{ detail }}</div>
+    {% endif %}
+    <div class="kw-sub-option__badges">
+      {% if save_badge != blank %}
+        <img src="{{ 'save-icon.svg' | asset_url }}" alt="{{ save_badge }}" width="100%" height="100%" class="kw-sub-option__badge-img save" loading="lazy">
+      {% endif %}
+      {% if free_shipping %}
+        <div class="kw-sub-option__free-shipping">
+        <img src="{{ 'free-shipping-icon.svg' | asset_url }}" alt="Free Shipping" width="100%" height="100%" class="kw-sub-option__badge-img free-shipping" loading="lazy">
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="kw-sub-option__price">{{ price }}</div>
+</div>

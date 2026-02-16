@@ -1,0 +1,38 @@
+{%- comment -%}
+  Renders a testimonial with combined photo, quote, name, and title.
+
+  Params:
+    - photo: image object (combined doctor + product photo)
+    - quote: string
+    - name: string
+    - title: string
+{%- endcomment -%}
+
+<div class="kw-testimonial">
+  {% if photo != blank %}
+    <div class="kw-testimonial__photo-wrap">
+      <img
+        src="{{ photo | image_url: width: 600 }}"
+        alt="{{ name }}"
+        class="kw-testimonial__photo"
+        loading="lazy"
+        width="100%" 
+        height="100%"
+      >
+    </div>
+  {% endif %}
+
+  <div class="kw-testimonial__content">
+    {% if quote != blank %}
+      <blockquote class="kw-testimonial__quote">
+        &ldquo;{{ quote }}&rdquo;
+      </blockquote>
+    {% endif %}
+    {% if name != blank %}
+      <p class="kw-testimonial__name">{{ name }}</p>
+    {% endif %}
+    {% if title != blank %}
+      <p class="kw-testimonial__title">{{ title }}</p>
+    {% endif %}
+  </div>
+</div>

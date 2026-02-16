@@ -1,0 +1,151 @@
+{{ 'kw-feature-grid.css' | asset_url | stylesheet_tag }}
+
+<section class="kw-feature-grid" style="
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+" {{ section.shopify_attributes }}>
+  {% if section.settings.bg_image != blank %}
+    <img
+      src="{{ section.settings.bg_image | image_url: width: 1920 }}"
+      alt=""
+      class="kw-feature-grid__bg"
+      loading="lazy"
+    >
+  {% endif %}
+
+  <div class="kw-feature-grid__grid">
+    {% for block in section.blocks %}
+      <div class="kw-feature-grid__item" {{ block.shopify_attributes }}>
+        {% render 'kw-ingredient-card',
+          icon: block.settings.icon,
+          title: block.settings.title,
+          description: block.settings.description,
+          bg_color: block.settings.bg_color,
+          title_color: block.settings.title_color,
+          text_color: block.settings.text_color
+        %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "KW Feature Grid",
+  "tag": "section",
+  "class": "kw-feature-grid-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Feature Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Viola Verecunda"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Also known as hidden violet, this extract supercharges hair growth without harsh, harmful chemicals."
+        },
+        {
+          "type": "header",
+          "content": "Card Colors"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Card background",
+          "default": "#ffffff1A"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Description color",
+          "default": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KW Feature Grid",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "Viola Verecunda",
+            "description": "Also known as hidden violet, this extract supercharges hair growth without harsh, harmful chemicals."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Green Tea Extract",
+            "description": "Rich in antioxidants, green tea extract helps protect hair from damage by free radicals and reduces follicle inflammation."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Grape Extract",
+            "description": "Helps stimulate hair growth by enhancing scalp circulation and triggering the release of the growth factor responsible for healing."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Gingko Biloba",
+            "description": "Supports improved circulation to deliver more nutrients to each hair follicle and encourage growth"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

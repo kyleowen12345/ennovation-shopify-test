@@ -1,0 +1,410 @@
+{{ 'kw-product-detail.css' | asset_url | stylesheet_tag }}
+
+{%- assign product = all_products[section.settings.product] -%}
+
+<section class="kw-pdp" style="
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+" {{ section.shopify_attributes }}>
+  <div class="kw-pdp__container">
+
+    {%- comment -%} LEFT — Image Gallery {%- endcomment -%}
+    <div class="kw-pdp__gallery">
+      <div class="kw-pdp__main-image" id="kw-main-image">
+        <button class="kw-pdp__arrow kw-pdp__arrow--prev" aria-label="Previous" data-gallery-prev>
+          <svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M9 1L1 9L9 17" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        {% if product != blank and product.featured_image != blank %}
+          <img src="{{ product.featured_image | image_url: width: 800 }}" width="100%" height="100%" alt="{{ product.title }}" id="kw-main-img" loading="eager">
+        {% elsif section.settings.main_image != blank %}
+          <img src="{{ section.settings.main_image | image_url: width: 800 }}" width="100%" height="100%" alt="{{ section.settings.title }}" id="kw-main-img" loading="eager">
+        {% else %}
+          <div class="kw-pdp__placeholder">Product Image</div>
+        {% endif %}
+
+        <button class="kw-pdp__arrow kw-pdp__arrow--next" aria-label="Next" data-gallery-next>
+          <svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M1 1L9 9L1 17" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div class="kw-pdp__thumbs">
+        {% if product != blank %}
+          {% for media in product.media %}
+            {% if media.media_type == 'image' %}
+              <div class="kw-pdp__thumb{% if forloop.first %} kw-pdp__thumb--active{% endif %}" data-thumb data-thumb-src="{{ media | image_url: width: 800 }}">
+                <img src="{{ media | image_url: width: 150 }}" alt="{{ media.alt | default: product.title }}" width="100%" height="100%" loading="lazy">
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+
+    {%- comment -%} RIGHT — Product Info {%- endcomment -%}
+    <div class="kw-pdp__info">
+
+      <h1 class="kw-pdp__title">
+        {% if product != blank %}{{ product.title }}{% else %}{{ section.settings.title }}{% endif %}
+      </h1>
+
+      <div class="kw-pdp__price-row">
+        <span class="kw-pdp__price">
+          {% if product != blank %}{{ product.price | money }}{% else %}{{ section.settings.price }}{% endif %}
+        </span>
+        {% if section.settings.size_info != blank %}
+          <span class="kw-pdp__size-info">{{ section.settings.size_info }}</span>
+        {% endif %}
+      </div>
+
+      {%- comment -%} Quantity + Add to Cart {%- endcomment -%}
+      <div class="kw-pdp__cart-row">
+        <div class="kw-pdp__qty">
+          <button class="kw-pdp__qty-btn" data-qty-decrease>–</button>
+          <input type="number" class="kw-pdp__qty-input" value="1" min="1" max="100">
+          <button class="kw-pdp__qty-btn" data-qty-increase>+</button>
+        </div>
+        {% if product != blank %}
+          <button class="kw-pdp__atc" data-atc data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+            {{ section.settings.button_text | default: 'Add to Cart' }}
+          </button>
+        {% else %}
+          <button class="kw-pdp__atc">{{ section.settings.button_text | default: 'Add to Cart' }}</button>
+        {% endif %}
+      </div>
+
+      {%- comment -%} About — collapsible {%- endcomment -%}
+      {% if section.settings.about_heading != blank %}
+        <div class="kw-pdp__about" data-collapsible>
+          <div class="kw-pdp__about-header" data-collapsible-trigger>
+            <span>{{ section.settings.about_heading }}</span>
+            <span class="kw-pdp__about-icon">–</span>
+          </div>
+          <div class="kw-pdp__about-body" data-collapsible-body>
+      {% endif %}
+
+      {%- comment -%} Feature bullets {%- endcomment -%}
+      <div class="kw-pdp__features">
+        {% for block in section.blocks %}
+          {% if block.type == 'feature' %}
+            <div {{ block.shopify_attributes }}>
+              {% render 'kw-feature-item',
+                label: block.settings.label,
+                description: block.settings.description
+              %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if section.settings.about_heading != blank %}
+          </div>
+        </div>
+      {% endif %}
+
+      {%- comment -%} Subscription tiers {%- endcomment -%}
+      <div class="kw-pdp__subs">
+        {% for block in section.blocks %}
+          {% if block.type == 'subscription' %}
+            <div {{ block.shopify_attributes }}>
+              {% render 'kw-subscription-option',
+                name: block.settings.name,
+                detail: block.settings.detail,
+                price: block.settings.price,
+                active: block.settings.is_default,
+                save_badge: block.settings.save_badge,
+                free_shipping: block.settings.free_shipping
+              %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {%- comment -%} Shipping accordion {%- endcomment -%}
+      {% if section.settings.shipping_heading != blank %}
+        <div class="kw-pdp__shipping" data-collapsible>
+          <div class="kw-pdp__shipping-header" data-collapsible-trigger>
+            <span>{{ section.settings.shipping_heading }}</span>
+            <span class="kw-pdp__shipping-icon">+</span>
+          </div>
+          <div class="kw-pdp__shipping-body" data-collapsible-body style="display:none;">
+            {% for block in section.blocks %}
+              {% if block.type == 'shipping_line' %}
+                <div class="kw-pdp__shipping-row" {{ block.shopify_attributes }}>
+                  {% if block.settings.icon != blank %}
+                    <img src="{{ block.settings.icon | image_url: width: 40 }}" alt="" width="20" height="20" class="kw-pdp__shipping-row-icon" loading="lazy">
+                  {% endif %}
+                  <p>{{ block.settings.text }}</p>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    /* Quantity */
+    document.querySelectorAll('[data-qty-decrease]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var input = this.parentElement.querySelector('.kw-pdp__qty-input');
+        input.value = Math.max(parseInt(input.value) - 1, 1);
+      });
+    });
+    document.querySelectorAll('[data-qty-increase]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var input = this.parentElement.querySelector('.kw-pdp__qty-input');
+        input.value = Math.min(parseInt(input.value) + 1, 100);
+      });
+    });
+
+    /* Subscription toggle */
+    document.querySelectorAll('[data-sub-option]').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        document.querySelectorAll('[data-sub-option]').forEach(function (o) { o.classList.remove('kw-sub-option--active'); });
+        this.classList.add('kw-sub-option--active');
+      });
+    });
+
+    /* Collapsible sections */
+    document.querySelectorAll('[data-collapsible-trigger]').forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        var body = this.nextElementSibling;
+        var icon = this.querySelector('.kw-pdp__about-icon, .kw-pdp__shipping-icon');
+        if (body.style.display === 'none') {
+          body.style.display = 'block';
+          if (icon) icon.textContent = '–';
+        } else {
+          body.style.display = 'none';
+          if (icon) icon.textContent = '+';
+        }
+      });
+    });
+
+    /* Thumbnail gallery */
+    var mainImg = document.getElementById('kw-main-img');
+    document.querySelectorAll('[data-thumb]').forEach(function (thumb) {
+      thumb.addEventListener('click', function () {
+        document.querySelectorAll('[data-thumb]').forEach(function (t) { t.classList.remove('kw-pdp__thumb--active'); });
+        this.classList.add('kw-pdp__thumb--active');
+        if (mainImg && this.dataset.thumbSrc) mainImg.src = this.dataset.thumbSrc;
+      });
+    });
+
+    /* Gallery arrows */
+    var thumbs = document.querySelectorAll('[data-thumb]');
+    var currentIndex = 0;
+    function showThumb(index) {
+      if (thumbs.length === 0) return;
+      currentIndex = (index + thumbs.length) % thumbs.length;
+      thumbs[currentIndex].click();
+    }
+    document.querySelectorAll('[data-gallery-prev]').forEach(function (btn) {
+      btn.addEventListener('click', function () { showThumb(currentIndex - 1); });
+    });
+    document.querySelectorAll('[data-gallery-next]').forEach(function (btn) {
+      btn.addEventListener('click', function () { showThumb(currentIndex + 1); });
+    });
+
+    /* Add to Cart */
+    document.querySelectorAll('[data-atc]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var variantId = this.dataset.variantId;
+        var qty = document.querySelector('.kw-pdp__qty-input').value;
+        if (!variantId) return;
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: parseInt(variantId), quantity: parseInt(qty) })
+        }).then(function (res) { return res.json(); })
+          .then(function () { window.location.href = '/cart'; });
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "KW Product Detail",
+  "tag": "section",
+  "class": "kw-pdp-section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Fallback main image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Fallback title",
+      "default": "KeeWee Revitalizing Shampoo"
+    },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "Fallback price",
+      "default": "$34.99"
+    },
+    {
+      "type": "text",
+      "id": "size_info",
+      "label": "Size info",
+      "default": "(10.1 fl.oz / 300mL)"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "text",
+      "id": "about_heading",
+      "label": "About section heading",
+      "default": "About KeeWee"
+    },
+    {
+      "type": "header",
+      "content": "Shipping"
+    },
+    {
+      "type": "text",
+      "id": "shipping_heading",
+      "label": "Shipping heading",
+      "default": "Shipping"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Bullet",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Bold label",
+          "default": "Clinically-Tested:"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Niacinamide and Biotin support better texture, more volume, and less breakage."
+        }
+      ]
+    },
+    {
+      "type": "subscription",
+      "name": "Subscription Tier",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Option name",
+          "default": "Single Bottle"
+        },
+        {
+          "type": "text",
+          "id": "detail",
+          "label": "Sub text",
+          "default": "pause or cancel at any time"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$34.99"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_default",
+          "label": "Selected by default",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "save_badge",
+          "label": "Show save badge",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "free_shipping",
+          "label": "Free shipping",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "shipping_line",
+      "name": "Shipping Line",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free Shipping on all orders"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KW Product Detail",
+      "blocks": [
+        { "type": "feature", "settings": { "label": "Clinically-Tested:", "description": "Niacinamide and Biotin support better texture, more volume, and less breakage." } },
+        { "type": "feature", "settings": { "label": "Thick, Healthy, Shiny Hair:", "description": "EGCG and Green Tea Extract that help combat hair loss." } },
+        { "type": "feature", "settings": { "label": "Balanced pH for Scalp Health:", "description": "Viola Verecunda and Ginkgo Biloba for pH balance that soothes irritation and reduces flaking." } },
+        { "type": "feature", "settings": { "label": "Safe for Color-Treated Hair:", "description": "Sulfate, paraben, and silicone-free so you don't compromise your vibrant hue." } },
+        { "type": "feature", "settings": { "label": "Certified Vegan Formula:", "description": "The finest natural ingredients, free from harsh chemicals" } },
+        { "type": "feature", "settings": { "label": "Refreshing Scent:", "description": "A spa-like fragrance that uplifts your senses without overpowering artificial scents" } },
+        { "type": "subscription", "settings": { "name": "Single Bottle", "price": "$34.99", "is_default": true } },
+        { "type": "subscription", "settings": { "name": "1-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$29.99", "save_badge": true } },
+        { "type": "subscription", "settings": { "name": "2-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$55.00", "save_badge": true, "free_shipping": true } },
+        { "type": "subscription", "settings": { "name": "3-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$78.00", "free_shipping": true } },
+        { "type": "shipping_line", "settings": { "text": "Free Shipping on all orders" } },
+        { "type": "shipping_line", "settings": { "text": "Buy Now and Get it by Friday, June 7" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

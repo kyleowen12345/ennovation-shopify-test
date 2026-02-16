@@ -1,0 +1,205 @@
+{{ 'kw-community-gallery.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kw-community"
+  style="
+    {% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+  {{ section.shopify_attributes }}
+>
+  <div class="kw-community__header">
+    {% if section.settings.heading != blank %}
+      <h2 class="kw-community__heading">
+        {% if section.settings.heading_accent != blank %}
+          <span class="kw-community__heading-accent">{{ section.settings.heading_accent }}</span>
+        {% endif %}
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {%- comment -%} Social links — using kw-social-link snippet {%- endcomment -%}
+    <div class="kw-community__socials">
+      {% if section.settings.instagram_handle != blank %}
+        {% render 'kw-social-link',
+          platform: 'instagram',
+          handle: section.settings.instagram_handle,
+          link: section.settings.instagram_link,
+          icon_color: section.settings.highlight_color
+        %}
+      {% endif %}
+      {% if section.settings.facebook_handle != blank %}
+        <span class="kw-community__divider">|</span>
+        {% render 'kw-social-link',
+          platform: 'facebook',
+          handle: section.settings.facebook_handle,
+          link: section.settings.facebook_link,
+          icon_color: section.settings.highlight_color
+        %}
+      {% endif %}
+    </div>
+  </div>
+
+  {%- comment -%} Photo grid — each photo is a theme block {%- endcomment -%}
+  <div class="kw-community__grid">
+    {% for block in section.blocks %}
+      <div {{ block.shopify_attributes }}>
+        {% render 'kw-gallery-photo',
+          image: block.settings.image,
+          alt_text: block.settings.alt_text
+        %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var grid = document.querySelector('.kw-community__grid');
+    if (!grid) return;
+
+    var isDown = false;
+    var startX;
+    var scrollLeft;
+
+    grid.addEventListener('mousedown', function (e) {
+      isDown = true;
+      startX = e.pageX - grid.offsetLeft;
+      scrollLeft = grid.scrollLeft;
+    });
+
+    grid.addEventListener('mouseleave', function () { isDown = false; });
+    grid.addEventListener('mouseup', function () { isDown = false; });
+
+    grid.addEventListener('mousemove', function (e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - grid.offsetLeft;
+      var walk = (x - startX) * 2;
+      grid.scrollLeft = scrollLeft - walk;
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "KW Community Gallery",
+  "tag": "section",
+  "class": "kw-community-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "Accent text (italic)",
+      "default": "JOIN"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "the Glow Gang"
+    },
+    {
+      "type": "header",
+      "content": "Social Links"
+    },
+    {
+      "type": "text",
+      "id": "instagram_handle",
+      "label": "Instagram handle",
+      "default": "kewee"
+    },
+    {
+      "type": "url",
+      "id": "instagram_link",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "text",
+      "id": "facebook_handle",
+      "label": "Facebook handle",
+      "default": "kewee"
+    },
+    {
+      "type": "url",
+      "id": "facebook_link",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight color (accent text + social icons)",
+      "default": "#C9A89A"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#E8E3DB"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 0,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text",
+          "default": "Community photo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KW Community Gallery",
+      "blocks": [
+        { "type": "photo", "settings": { "alt_text": "Community photo 1" } },
+        { "type": "photo", "settings": { "alt_text": "Community photo 2" } },
+        { "type": "photo", "settings": { "alt_text": "Community photo 3" } },
+        { "type": "photo", "settings": { "alt_text": "Community photo 4" } },
+        { "type": "photo", "settings": { "alt_text": "Community photo 5" } },
+        { "type": "photo", "settings": { "alt_text": "Community photo 6" } },
+        { "type": "photo", "settings": { "alt_text": "Community photo 7" } },
+        { "type": "photo", "settings": { "alt_text": "Community photo 8" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
