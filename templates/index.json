@@ -155,6 +155,7 @@
         "logo_hi6jdq": {
           "type": "logo",
           "settings": {
+            "logo": "shopify://shop_images/image_13.png",
             "alt_text": "Allure",
             "link": ""
           }
@@ -162,6 +163,7 @@
         "logo_bhLCnj": {
           "type": "logo",
           "settings": {
+            "logo": "shopify://shop_images/image_14.png",
             "alt_text": "NBC",
             "link": ""
           }
@@ -169,6 +171,7 @@
         "logo_8XdPfe": {
           "type": "logo",
           "settings": {
+            "logo": "shopify://shop_images/image_16.png",
             "alt_text": "FOX",
             "link": ""
           }
@@ -176,35 +179,16 @@
         "logo_MKEipb": {
           "type": "logo",
           "settings": {
+            "logo": "shopify://shop_images/image_58.png",
             "alt_text": "Vogue",
-            "link": ""
-          }
-        },
-        "logo_LHMDFc": {
-          "type": "logo",
-          "settings": {
-            "alt_text": "FOX",
-            "link": ""
-          }
-        },
-        "logo_yJdCtd": {
-          "type": "logo",
-          "settings": {
-            "alt_text": "Allure",
             "link": ""
           }
         },
         "logo_WJKQtK": {
           "type": "logo",
           "settings": {
+            "logo": "shopify://shop_images/1-removebg-preview_1.png",
             "alt_text": "Better Homes & Gardens",
-            "link": ""
-          }
-        },
-        "logo_Lw7gYk": {
-          "type": "logo",
-          "settings": {
-            "alt_text": "Vogue",
             "link": ""
           }
         }
@@ -214,10 +198,7 @@
         "logo_bhLCnj",
         "logo_8XdPfe",
         "logo_MKEipb",
-        "logo_LHMDFc",
-        "logo_yJdCtd",
-        "logo_WJKQtK",
-        "logo_Lw7gYk"
+        "logo_WJKQtK"
       ],
       "name": "KW Logo Carousel",
       "settings": {
@@ -233,49 +214,50 @@
         "photo_MbBJXD": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/84593a6b4c62d2e24a15ee095424c7a36f5c8e25.jpg",
             "alt_text": "Community photo 1"
           }
         },
         "photo_QDeeeY": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/888093a4ffee15f2bcdef2bbdeadc370afe43ff7.png",
             "alt_text": "Community photo 2"
           }
         },
         "photo_XdBehY": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/361235772020f79ab5bd1da5e72615840fc5ed1f.jpg",
             "alt_text": "Community photo 3"
           }
         },
         "photo_WVUPVX": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/c197a4c577924e500f3fe53e23835a47954d26c8.png",
             "alt_text": "Community photo 4"
           }
         },
         "photo_x8NYEF": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/0810d89917410de0ce04b723684b0c492bdb238b.png",
             "alt_text": "Community photo 5"
           }
         },
         "photo_hT3ceN": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/9c4b038bc203344109701ccf3cb90dfbb575548f.png",
             "alt_text": "Community photo 6"
           }
         },
         "photo_eaz6rN": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/ca38f84ef243de806542cfcc1fb26a2bf3e3845c.png",
             "alt_text": "Community photo 7"
-          }
-        },
-        "photo_y8MAip": {
-          "type": "photo",
-          "settings": {
-            "alt_text": "Community photo 8"
           }
         }
       },
@@ -286,8 +268,7 @@
         "photo_WVUPVX",
         "photo_x8NYEF",
         "photo_hT3ceN",
-        "photo_eaz6rN",
-        "photo_y8MAip"
+        "photo_eaz6rN"
       ],
       "name": "KW Community Gallery",
       "settings": {
@@ -308,6 +289,8 @@
         "testimonial_4RqXDn": {
           "type": "testimonial",
           "settings": {
+            "photo": "shopify://shop_images/Group_1000003611.png",
+            "product_photo": "shopify://shop_images/Group_1000003612.png",
             "quote": "Many of my patients come to me after struggling with hair thinning and are looking for safe, effective alternatives. KeeWee Shampoo is an excellent choice for improving hair density and health. Its scientifically backed ingredients are gentle yet potent, addressing key concerns like shedding and scalp health.",
             "name": "Dr. Ashley Magovern",
             "title": "Dermatologist in Manhattan Beach, California"
@@ -332,6 +315,7 @@
         "card_JHC7KY": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/Vector.png",
             "title": "Viola Verecunda",
             "description": "Also known as hidden violet, this extract supercharges hair growth without harsh, harmful chemicals."
           }
@@ -339,6 +323,7 @@
         "card_XcCPE4": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/Vector_1.png",
             "title": "Green Tea Extract",
             "description": "Rich in antioxidants, green tea extract helps protect hair from damage by free radicals and reduces follicle inflammation."
           }
@@ -346,6 +331,7 @@
         "card_49XgBm": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/Vector_2.png",
             "title": "Grape Extract",
             "description": "Helps stimulate hair growth by enhancing scalp circulation and triggering the release of the growth factor responsible for healing."
           }
@@ -353,6 +339,7 @@
         "card_mkEc44": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/Group_1000003581.png",
             "title": "Gingko Biloba",
             "description": "Supports improved circulation to deliver more nutrients to each hair follicle and encourage growth"
           }
@@ -366,6 +353,7 @@
       ],
       "name": "KW Feature Grid",
       "settings": {
+        "bg_image": "shopify://shop_images/ab7d1c1ead57330057cfd1d255445d7426e93eae.png",
         "padding_top": 60,
         "padding_bottom": 60
       }
