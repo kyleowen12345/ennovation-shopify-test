@@ -101,12 +101,14 @@
         "shipping_line_kYG9YU": {
           "type": "shipping_line",
           "settings": {
+            "icon": "shopify://shop_images/Vector_3.png",
             "text": "Free Shipping on all orders"
           }
         },
         "shipping_line_hXKMDP": {
           "type": "shipping_line",
           "settings": {
+            "icon": "shopify://shop_images/Vector_4.png",
             "text": "Buy Now and Get it by Friday, June 7"
           }
         }
