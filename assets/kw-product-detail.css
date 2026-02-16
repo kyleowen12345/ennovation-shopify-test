@@ -330,6 +330,7 @@
 .kw-sub-option__detail {
   font-size: 10px;
   color: #242323;
+  margin-top: -5px;
 }
 .kw-sub-option__badges {
   display: flex;
@@ -465,6 +466,10 @@
   }
   .kw-pdp__gallery {
     position: static;
+  }
+
+  .kw-sub-option {
+    gap: 8px;
   }
 
   .kw-pdp__cart-row {
