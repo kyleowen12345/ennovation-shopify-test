@@ -6,285 +6,376 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
+    "kw_product_detail_i7mGn6": {
+      "type": "kw-product-detail",
       "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+        "thumbnail_xhBBWz": {
+          "type": "thumbnail",
+          "settings": {}
         },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
+        "thumbnail_zX6iAj": {
+          "type": "thumbnail",
+          "settings": {}
+        },
+        "thumbnail_B69PpA": {
+          "type": "thumbnail",
+          "settings": {}
+        },
+        "thumbnail_VD6mFK": {
+          "type": "thumbnail",
+          "settings": {}
+        },
+        "thumbnail_m93f7w": {
+          "type": "thumbnail",
+          "settings": {}
+        },
+        "feature_x9mRyt": {
+          "type": "feature",
           "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-secondary",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
+            "label": "Clinically-Tested:",
+            "description": "Niacinamide and Biotin support better texture, more volume, and less breakage."
+          }
+        },
+        "feature_thwrcC": {
+          "type": "feature",
+          "settings": {
+            "label": "Thick, Healthy, Shiny Hair:",
+            "description": "EGCG and Green Tea Extract that help combat hair loss."
+          }
+        },
+        "feature_Fa8XwF": {
+          "type": "feature",
+          "settings": {
+            "label": "Balanced pH for Scalp Health:",
+            "description": "Viola Verecunda and Ginkgo Biloba for pH balance that soothes irritation and reduces flaking."
+          }
+        },
+        "feature_GCXLrd": {
+          "type": "feature",
+          "settings": {
+            "label": "Safe for Color-Treated Hair:",
+            "description": "Sulfate, paraben, and silicone-free so you don't compromise your vibrant hue."
+          }
+        },
+        "feature_XP7gEE": {
+          "type": "feature",
+          "settings": {
+            "label": "Certified Vegan Formula:",
+            "description": "The finest natural ingredients, free from harsh chemicals"
+          }
+        },
+        "feature_MBtxhw": {
+          "type": "feature",
+          "settings": {
+            "label": "Refreshing Scent:",
+            "description": "A spa-like fragrance that uplifts your senses without overpowering artificial scents"
+          }
+        },
+        "subscription_Bt44Vr": {
+          "type": "subscription",
+          "settings": {
+            "name": "Single Bottle",
+            "detail": "pause or cancel at any time",
+            "price": "$34.99",
+            "is_default": true,
+            "save_badge": "",
+            "shipping_badge": ""
+          }
+        },
+        "subscription_9Baxnm": {
+          "type": "subscription",
+          "settings": {
+            "name": "1-Bottle Monthly",
+            "detail": "pause or cancel at any time",
+            "price": "$29.99",
+            "is_default": false,
+            "save_badge": "save over 14%",
+            "shipping_badge": ""
+          }
+        },
+        "subscription_pHzb8m": {
+          "type": "subscription",
+          "settings": {
+            "name": "2-Bottle Monthly",
+            "detail": "pause or cancel at any time",
+            "price": "$55.00",
+            "is_default": false,
+            "save_badge": "save over 20%",
+            "shipping_badge": "FREE SHIPPING"
+          }
+        },
+        "subscription_JD9tJ4": {
+          "type": "subscription",
+          "settings": {
+            "name": "3-Bottle Monthly",
+            "detail": "pause or cancel at any time",
+            "price": "$78.00",
+            "is_default": false,
+            "save_badge": "",
+            "shipping_badge": "FREE SHIPPING"
+          }
         }
       },
       "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
+        "thumbnail_xhBBWz",
+        "thumbnail_zX6iAj",
+        "thumbnail_B69PpA",
+        "thumbnail_VD6mFK",
+        "thumbnail_m93f7w",
+        "feature_x9mRyt",
+        "feature_thwrcC",
+        "feature_Fa8XwF",
+        "feature_GCXLrd",
+        "feature_XP7gEE",
+        "feature_MBtxhw",
+        "subscription_Bt44Vr",
+        "subscription_9Baxnm",
+        "subscription_pHzb8m",
+        "subscription_JD9tJ4"
       ],
-      "name": "t:names.hero",
+      "name": "KW Product Detail",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "product": "keewee-revitalizing-shampoo",
+        "title": "KeeWee Revitalizing Shampoo",
+        "price": "$34.99",
+        "size_info": "(10.1 fl.oz / 300mL)",
+        "button_text": "Add to Cart",
+        "about_heading": "About KeeWee",
+        "shipping_heading": "Shipping",
+        "shipping_line_1": "Free Shipping on all orders",
+        "shipping_line_2": "Buy Now and Get it by Friday, June 7"
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "kw_logo_carousel_qzUDWM": {
+      "type": "kw-logo-carousel",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "logo_hi6jdq": {
+          "type": "logo",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "alt_text": "Allure",
+            "link": ""
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "logo_bhLCnj": {
+          "type": "logo",
           "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+            "alt_text": "NBC",
+            "link": ""
+          }
+        },
+        "logo_8XdPfe": {
+          "type": "logo",
+          "settings": {
+            "alt_text": "FOX",
+            "link": ""
+          }
+        },
+        "logo_MKEipb": {
+          "type": "logo",
+          "settings": {
+            "alt_text": "Vogue",
+            "link": ""
+          }
+        },
+        "logo_LHMDFc": {
+          "type": "logo",
+          "settings": {
+            "alt_text": "FOX",
+            "link": ""
+          }
+        },
+        "logo_yJdCtd": {
+          "type": "logo",
+          "settings": {
+            "alt_text": "Allure",
+            "link": ""
+          }
+        },
+        "logo_WJKQtK": {
+          "type": "logo",
+          "settings": {
+            "alt_text": "Better Homes & Gardens",
+            "link": ""
+          }
+        },
+        "logo_Lw7gYk": {
+          "type": "logo",
+          "settings": {
+            "alt_text": "Vogue",
+            "link": ""
+          }
         }
       },
-      "name": "Featured collection",
+      "block_order": [
+        "logo_hi6jdq",
+        "logo_bhLCnj",
+        "logo_8XdPfe",
+        "logo_MKEipb",
+        "logo_LHMDFc",
+        "logo_yJdCtd",
+        "logo_WJKQtK",
+        "logo_Lw7gYk"
+      ],
+      "name": "KW Logo Carousel",
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "heading": "As Seen In",
+        "bg_color": "#ffffff",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "kw_community_gallery_zVLNbc": {
+      "type": "kw-community-gallery",
+      "blocks": {
+        "photo_MbBJXD": {
+          "type": "photo",
+          "settings": {
+            "alt_text": "Community photo 1"
+          }
+        },
+        "photo_QDeeeY": {
+          "type": "photo",
+          "settings": {
+            "alt_text": "Community photo 2"
+          }
+        },
+        "photo_XdBehY": {
+          "type": "photo",
+          "settings": {
+            "alt_text": "Community photo 3"
+          }
+        },
+        "photo_WVUPVX": {
+          "type": "photo",
+          "settings": {
+            "alt_text": "Community photo 4"
+          }
+        },
+        "photo_x8NYEF": {
+          "type": "photo",
+          "settings": {
+            "alt_text": "Community photo 5"
+          }
+        },
+        "photo_hT3ceN": {
+          "type": "photo",
+          "settings": {
+            "alt_text": "Community photo 6"
+          }
+        },
+        "photo_eaz6rN": {
+          "type": "photo",
+          "settings": {
+            "alt_text": "Community photo 7"
+          }
+        },
+        "photo_y8MAip": {
+          "type": "photo",
+          "settings": {
+            "alt_text": "Community photo 8"
+          }
+        }
+      },
+      "block_order": [
+        "photo_MbBJXD",
+        "photo_QDeeeY",
+        "photo_XdBehY",
+        "photo_WVUPVX",
+        "photo_x8NYEF",
+        "photo_hT3ceN",
+        "photo_eaz6rN",
+        "photo_y8MAip"
+      ],
+      "name": "KW Community Gallery",
+      "settings": {
+        "heading_accent": "JOIN",
+        "heading": "the Glow Gang",
+        "instagram_handle": "kewee",
+        "instagram_link": "",
+        "facebook_handle": "kewee",
+        "facebook_link": "",
+        "bg_color": "#E8E3DB",
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "kw_testimonial_63VM39": {
+      "type": "kw-testimonial",
+      "blocks": {
+        "testimonial_4RqXDn": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Many of my patients come to me after struggling with hair thinning and are looking for safe, effective alternatives. KeeWee Shampoo is an excellent choice for improving hair density and health. Its scientifically backed ingredients are gentle yet potent, addressing key concerns like shedding and scalp health.",
+            "name": "Dr. Ashley Magovern",
+            "title": "Dermatologist in Manhattan Beach, California"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_4RqXDn"
+      ],
+      "name": "KW Testimonial",
+      "settings": {
+        "heading": "See Why Top Dermatologist",
+        "heading_highlight": "Recommend KeeWee",
+        "bg_color": "#F5F0EB",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "kw_feature_grid_UEMwNw": {
+      "type": "kw-feature-grid",
+      "blocks": {
+        "card_JHC7KY": {
+          "type": "card",
+          "settings": {
+            "title": "Viola Verecunda",
+            "description": "Also known as hidden violet, this extract supercharges hair growth without harsh, harmful chemicals."
+          }
+        },
+        "card_XcCPE4": {
+          "type": "card",
+          "settings": {
+            "title": "Green Tea Extract",
+            "description": "Rich in antioxidants, green tea extract helps protect hair from damage by free radicals and reduces follicle inflammation."
+          }
+        },
+        "card_49XgBm": {
+          "type": "card",
+          "settings": {
+            "title": "Grape Extract",
+            "description": "Helps stimulate hair growth by enhancing scalp circulation and triggering the release of the growth factor responsible for healing."
+          }
+        },
+        "card_mkEc44": {
+          "type": "card",
+          "settings": {
+            "title": "Gingko Biloba",
+            "description": "Supports improved circulation to deliver more nutrients to each hair follicle and encourage growth"
+          }
+        }
+      },
+      "block_order": [
+        "card_JHC7KY",
+        "card_XcCPE4",
+        "card_49XgBm",
+        "card_mkEc44"
+      ],
+      "name": "KW Feature Grid",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "kw_product_detail_i7mGn6",
+    "kw_logo_carousel_qzUDWM",
+    "kw_community_gallery_zVLNbc",
+    "kw_testimonial_63VM39",
+    "kw_feature_grid_UEMwNw"
   ]
 }
