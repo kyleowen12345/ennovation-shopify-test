@@ -81,7 +81,7 @@
             "detail": "pause or cancel at any time",
             "price": "$34.99",
             "is_default": true,
-            "save_badge": "",
+            "save_badge": false,
             "free_shipping": false
           }
         },
@@ -92,7 +92,7 @@
             "detail": "pause or cancel at any time",
             "price": "$29.99",
             "is_default": false,
-            "save_badge": "save over 14%",
+            "save_badge": false,
             "free_shipping": true
           }
         },
@@ -103,7 +103,7 @@
             "detail": "pause or cancel at any time",
             "price": "$55.00",
             "is_default": false,
-            "save_badge": "save over 20%",
+            "save_badge": false,
             "free_shipping": false
           }
         },
@@ -114,8 +114,20 @@
             "detail": "pause or cancel at any time",
             "price": "$78.00",
             "is_default": false,
-            "save_badge": "",
+            "save_badge": false,
             "free_shipping": false
+          }
+        },
+        "shipping_line_kYG9YU": {
+          "type": "shipping_line",
+          "settings": {
+            "text": "Free Shipping on all orders"
+          }
+        },
+        "shipping_line_hXKMDP": {
+          "type": "shipping_line",
+          "settings": {
+            "text": "Free Shipping on all orders"
           }
         }
       },
@@ -134,7 +146,9 @@
         "subscription_Bt44Vr",
         "subscription_9Baxnm",
         "subscription_pHzb8m",
-        "subscription_JD9tJ4"
+        "subscription_JD9tJ4",
+        "shipping_line_kYG9YU",
+        "shipping_line_hXKMDP"
       ],
       "name": "KW Product Detail",
       "settings": {
@@ -145,8 +159,6 @@
         "button_text": "Add to Cart",
         "about_heading": "About KeeWee",
         "shipping_heading": "Shipping",
-        "shipping_line_1": "Free Shipping on all orders",
-        "shipping_line_2": "Buy Now and Get it by Friday, June 7",
         "padding_top": 40,
         "padding_bottom": 40
       }
