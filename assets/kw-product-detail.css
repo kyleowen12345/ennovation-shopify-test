@@ -468,6 +468,10 @@
     position: static;
   }
 
+  .kw-pdp__size-info {
+    font-size: 16px;
+  }
+
   .kw-sub-option {
     gap: 8px;
   }
