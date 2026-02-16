@@ -304,6 +304,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  margin-inline: 50px;
 }
 
 .kw-sub-option--active .kw-sub-option__radio {
@@ -322,7 +323,7 @@
   flex: 1;
 }
 .kw-sub-option__name {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   color: #333333;
 }
@@ -357,10 +358,24 @@
   height: 18px;
   width: auto;
   position: absolute;
+}
+
+.kw-sub-option__badge-img.save {
   top: 0;
   right: 5px;
 }
-
+.kw-sub-option__free-shipping {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kw-sub-option__free-shipping img {
+  height: 50px;
+}
 .kw-sub-option__price {
   font-size: 18px;
   font-weight: 700;
@@ -430,5 +445,11 @@
   }
   .kw-pdp__qty {
     gap: 20px;
+  }
+  .kw-sub-option__name {
+    font-size: 24px;
+  }
+  .kw-sub-option__radio {
+    margin-inline: 0px;
   }
 }

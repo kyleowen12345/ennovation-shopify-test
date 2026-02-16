@@ -62,7 +62,10 @@
   -webkit-overflow-scrolling: touch;
   cursor: grab;
   padding-bottom: 4px;
-  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .kw-community__grid:active {
