@@ -204,6 +204,7 @@
       "settings": {
         "heading": "As Seen In",
         "bg_color": "#ffffff",
+        "bg_image": "shopify://shop_images/384a24d87439557759fc6caf0ba0f8402e4803e4.png",
         "padding_top": 24,
         "padding_bottom": 24
       }
