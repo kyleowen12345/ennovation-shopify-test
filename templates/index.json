@@ -12,26 +12,6 @@
     "kw_product_detail_i7mGn6": {
       "type": "kw-product-detail",
       "blocks": {
-        "thumbnail_xhBBWz": {
-          "type": "thumbnail",
-          "settings": {}
-        },
-        "thumbnail_zX6iAj": {
-          "type": "thumbnail",
-          "settings": {}
-        },
-        "thumbnail_B69PpA": {
-          "type": "thumbnail",
-          "settings": {}
-        },
-        "thumbnail_VD6mFK": {
-          "type": "thumbnail",
-          "settings": {}
-        },
-        "thumbnail_m93f7w": {
-          "type": "thumbnail",
-          "settings": {}
-        },
         "feature_x9mRyt": {
           "type": "feature",
           "settings": {
@@ -121,24 +101,17 @@
         "shipping_line_kYG9YU": {
           "type": "shipping_line",
           "settings": {
-            "icon": "shopify://shop_images/Vector_3.png",
             "text": "Free Shipping on all orders"
           }
         },
         "shipping_line_hXKMDP": {
           "type": "shipping_line",
           "settings": {
-            "icon": "shopify://shop_images/Vector_4.png",
             "text": "Buy Now and Get it by Friday, June 7"
           }
         }
       },
       "block_order": [
-        "thumbnail_xhBBWz",
-        "thumbnail_zX6iAj",
-        "thumbnail_B69PpA",
-        "thumbnail_VD6mFK",
-        "thumbnail_m93f7w",
         "feature_x9mRyt",
         "feature_thwrcC",
         "feature_Fa8XwF",
@@ -187,16 +160,8 @@
         "logo_8XdPfe": {
           "type": "logo",
           "settings": {
-            "logo": "shopify://shop_images/image_16.png",
+            "logo": "shopify://shop_images/image_15.png",
             "alt_text": "FOX",
-            "link": ""
-          }
-        },
-        "logo_MKEipb": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/image_58.png",
-            "alt_text": "Vogue",
             "link": ""
           }
         },
@@ -213,14 +178,13 @@
         "logo_hi6jdq",
         "logo_bhLCnj",
         "logo_8XdPfe",
-        "logo_MKEipb",
         "logo_WJKQtK"
       ],
       "name": "KW Logo Carousel",
       "settings": {
         "heading": "As Seen In",
         "bg_color": "#ffffff",
-        "bg_image": "shopify://shop_images/384a24d87439557759fc6caf0ba0f8402e4803e4.png",
+        "bg_image": "shopify://shop_images/384a24d87439557759fc6caf0ba0f8402e4803e4_5ec63cdc-5ea0-4851-8f78-4a90f6746bae.png",
         "padding_top": 24,
         "padding_bottom": 24
       }
@@ -235,39 +199,39 @@
             "alt_text": "Community photo 1"
           }
         },
-        "photo_QDeeeY": {
+        "photo_hT3ceN": {
           "type": "photo",
           "settings": {
             "image": "shopify://shop_images/888093a4ffee15f2bcdef2bbdeadc370afe43ff7.png",
+            "alt_text": "Community photo 6"
+          }
+        },
+        "photo_QDeeeY": {
+          "type": "photo",
+          "settings": {
+            "image": "shopify://shop_images/361235772020f79ab5bd1da5e72615840fc5ed1f.jpg",
             "alt_text": "Community photo 2"
           }
         },
         "photo_XdBehY": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/361235772020f79ab5bd1da5e72615840fc5ed1f.jpg",
+            "image": "shopify://shop_images/c197a4c577924e500f3fe53e23835a47954d26c8.png",
             "alt_text": "Community photo 3"
           }
         },
         "photo_WVUPVX": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/c197a4c577924e500f3fe53e23835a47954d26c8.png",
+            "image": "shopify://shop_images/0810d89917410de0ce04b723684b0c492bdb238b.png",
             "alt_text": "Community photo 4"
           }
         },
         "photo_x8NYEF": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/0810d89917410de0ce04b723684b0c492bdb238b.png",
-            "alt_text": "Community photo 5"
-          }
-        },
-        "photo_hT3ceN": {
-          "type": "photo",
-          "settings": {
             "image": "shopify://shop_images/9c4b038bc203344109701ccf3cb90dfbb575548f.png",
-            "alt_text": "Community photo 6"
+            "alt_text": "Community photo 5"
           }
         },
         "photo_eaz6rN": {
@@ -280,11 +244,11 @@
       },
       "block_order": [
         "photo_MbBJXD",
+        "photo_hT3ceN",
         "photo_QDeeeY",
         "photo_XdBehY",
         "photo_WVUPVX",
         "photo_x8NYEF",
-        "photo_hT3ceN",
         "photo_eaz6rN"
       ],
       "name": "KW Community Gallery",
@@ -307,7 +271,7 @@
         "testimonial_4RqXDn": {
           "type": "testimonial",
           "settings": {
-            "photo": "shopify://shop_images/Screenshot_2026-02-16_at_3.23.59_PM.png",
+            "photo": "shopify://shop_images/Screenshot_2026-02-17_at_12.45.06_AM.png",
             "quote": "Many of my patients come to me after struggling with hair thinning and are looking for safe, effective alternatives. KeeWee Shampoo is an excellent choice for improving hair density and health. Its scientifically backed ingredients are gentle yet potent, addressing key concerns like shedding and scalp health.",
             "name": "Dr. Ashley Magovern",
             "title": "Dermatologist in Manhattan Beach, California"
@@ -329,7 +293,7 @@
     "kw_feature_grid_UEMwNw": {
       "type": "kw-feature-grid",
       "blocks": {
-        "card_JHC7KY": {
+        "card_zDUFzB": {
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/Vector.png",
@@ -340,7 +304,7 @@
             "text_color": "#ffffff"
           }
         },
-        "card_XcCPE4": {
+        "card_JHC7KY": {
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/Vector_1.png",
@@ -362,7 +326,7 @@
             "text_color": "#ffffff"
           }
         },
-        "card_mkEc44": {
+        "card_XcCPE4": {
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/Group_1000003581.png",
@@ -375,15 +339,15 @@
         }
       },
       "block_order": [
+        "card_zDUFzB",
         "card_JHC7KY",
-        "card_XcCPE4",
         "card_49XgBm",
-        "card_mkEc44"
+        "card_XcCPE4"
       ],
       "name": "KW Feature Grid",
       "settings": {
         "bg_image": "shopify://shop_images/ab7d1c1ead57330057cfd1d255445d7426e93eae.png",
-        "padding_top": 60,
+        "padding_top": 80,
         "padding_bottom": 60
       }
     }
