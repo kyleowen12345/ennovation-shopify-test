@@ -37,16 +37,6 @@
               </div>
             {% endif %}
           {% endfor %}
-        {% else %}
-          {% for block in section.blocks %}
-            {% if block.type == 'thumbnail' %}
-              <div class="kw-pdp__thumb{% if forloop.first %} kw-pdp__thumb--active{% endif %}" data-thumb data-thumb-src="{{ block.settings.image | image_url: width: 800 }}" {{ block.shopify_attributes }}>
-                {% if block.settings.image != blank %}
-                  <img src="{{ block.settings.image | image_url: width: 150 }}" width="100%" height="100%" alt="Product view" loading="lazy">
-                {% endif %}
-              </div>
-            {% endif %}
-          {% endfor %}
         {% endif %}
       </div>
     </div>
@@ -320,17 +310,6 @@
   ],
   "blocks": [
     {
-      "type": "thumbnail",
-      "name": "Gallery Thumbnail",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Thumbnail image"
-        }
-      ]
-    },
-    {
       "type": "feature",
       "name": "Feature Bullet",
       "settings": [
@@ -412,11 +391,6 @@
     {
       "name": "KW Product Detail",
       "blocks": [
-        { "type": "thumbnail" },
-        { "type": "thumbnail" },
-        { "type": "thumbnail" },
-        { "type": "thumbnail" },
-        { "type": "thumbnail" },
         { "type": "feature", "settings": { "label": "Clinically-Tested:", "description": "Niacinamide and Biotin support better texture, more volume, and less breakage." } },
         { "type": "feature", "settings": { "label": "Thick, Healthy, Shiny Hair:", "description": "EGCG and Green Tea Extract that help combat hair loss." } },
         { "type": "feature", "settings": { "label": "Balanced pH for Scalp Health:", "description": "Viola Verecunda and Ginkgo Biloba for pH balance that soothes irritation and reduces flaking." } },
