@@ -1,6 +1,9 @@
 {{ 'kw-feature-grid.css' | asset_url | stylesheet_tag }}
 
-<section class="kw-feature-grid" {{ section.shopify_attributes }}>
+<section class="kw-feature-grid" style="
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+" {{ section.shopify_attributes }}>
   {% if section.settings.bg_image != blank %}
     <img
       src="{{ section.settings.bg_image | image_url: width: 1920 }}"

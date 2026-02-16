@@ -1,0 +1,106 @@
+.kw-logo-carousel {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.kw-logo-carousel__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.kw-logo-carousel__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.kw-logo-carousel__heading {
+  font-family:
+    "Public Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: 20px;
+  color: #1a1a1a;
+  margin: 0 0 32px;
+  letter-spacing: 0.3px;
+}
+
+/* Horizon-style marquee:
+   wrapper = [content] + [content clone]
+   content = 4x repeated logo sets (guarantees viewport fill)
+   animation shifts -50% = exactly one content width
+   → seamless infinite loop, no JS */
+
+.kw-logo-carousel__marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.kw-logo-carousel__wrapper {
+  display: flex;
+  gap: 0;
+  width: fit-content;
+  white-space: nowrap;
+  animation: kw-marquee-motion 40s linear infinite;
+}
+
+.kw-logo-carousel__marquee:hover .kw-logo-carousel__wrapper {
+  animation-play-state: paused;
+}
+
+.kw-logo-carousel__content {
+  min-width: max-content;
+  display: flex;
+  gap: 0;
+}
+
+.kw-logo-carousel__set {
+  min-width: max-content;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes kw-marquee-motion {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Logo items */
+.kw-logo-item {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.kw-logo-item__img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+  padding: 0 32px;
+  max-width: none;
+}
+
+.kw-logo-item:hover .kw-logo-item__img {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kw-logo-carousel__wrapper {
+    animation: none;
+  }
+}
+
+@media (max-width: 749px) {
+  .kw-logo-item__img {
+    height: 18px;
+    padding: 0 16px;
+  }
+}

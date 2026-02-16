@@ -21,7 +21,7 @@
   gap: 30px;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 120px 40px;
+  padding: 0 40px;
 }
 
 .kw-feature-grid__item {
@@ -54,7 +54,13 @@
 }
 
 .kw-ingredient-card__title {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    "Public Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   font-size: 22px;
   font-weight: 700;
   color: #ffffff;
@@ -62,7 +68,13 @@
 }
 
 .kw-ingredient-card__desc {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    "Public Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
@@ -72,7 +84,7 @@
 @media (max-width: 749px) {
   .kw-feature-grid__grid {
     grid-template-columns: 1fr;
-    padding: 80px 16px;
+    padding: 0 16px;
   }
 
   .kw-ingredient-card {

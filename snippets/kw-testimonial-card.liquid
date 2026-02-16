@@ -1,48 +1,24 @@
 {%- comment -%}
-  Renders a testimonial with photo, product image, quote, name, and title.
-
-  Usage:
-    {% render 'kw-testimonial-card',
-      photo: block.settings.photo,
-      product_photo: block.settings.product_photo,
-      quote: block.settings.quote,
-      name: block.settings.name,
-      title: block.settings.title
-    %}
+  Renders a testimonial with combined photo, quote, name, and title.
 
   Params:
-    - photo: image object
-    - product_photo: image object
+    - photo: image object (combined doctor + product photo)
     - quote: string
     - name: string
     - title: string
 {%- endcomment -%}
 
 <div class="kw-testimonial">
-  <div class="kw-testimonial__photos">
-    <div class="kw-testimonial__photo-frame">
-      {% if photo != blank %}
-        <img
-          src="{{ photo | image_url: width: 400 }}"
-          alt="{{ name }}"
-          class="kw-testimonial__photo"
-          loading="lazy"
-        >
-      {% endif %}
-      <span class="kw-testimonial__diamond kw-testimonial__diamond--top"></span>
-      <span class="kw-testimonial__diamond kw-testimonial__diamond--bottom"></span>
+  {% if photo != blank %}
+    <div class="kw-testimonial__photo-wrap">
+      <img
+        src="{{ photo | image_url: width: 600 }}"
+        alt="{{ name }}"
+        class="kw-testimonial__photo"
+        loading="lazy"
+      >
     </div>
-    {% if product_photo != blank %}
-      <div class="kw-testimonial__product">
-        <img
-          src="{{ product_photo | image_url: width: 200 }}"
-          alt="KeeWee product"
-          class="kw-testimonial__product-img"
-          loading="lazy"
-        >
-      </div>
-    {% endif %}
-  </div>
+  {% endif %}
 
   <div class="kw-testimonial__content">
     {% if quote != blank %}

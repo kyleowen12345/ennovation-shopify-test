@@ -1,20 +1,11 @@
 {%- comment -%}
   Renders a subscription tier radio option.
 
-  Usage:
-    {% render 'kw-subscription-option',
-      name: 'Single Bottle',
-      detail: 'pause or cancel at any time',
-      price: '$34.99',
-      active: true,
-      save_badge: 'save over 14%',
-      shipping_badge: 'FREE SHIPPING'
-    %}
-
   Params:
     - name, detail, price: strings
     - active: boolean
-    - save_badge, shipping_badge: strings (optional)
+    - save_badge: text (optional)
+    - free_shipping: boolean
 {%- endcomment -%}
 
 <div class="kw-sub-option{% if active %} kw-sub-option--active{% endif %}" data-sub-option>
@@ -26,10 +17,10 @@
     {% endif %}
     <div class="kw-sub-option__badges">
       {% if save_badge != blank %}
-        <span class="kw-sub-option__badge kw-sub-option__badge--save">{{ save_badge }}</span>
+        <img src="{{ 'save-icon.svg' | asset_url }}" alt="{{ save_badge }}" width="100%" height="100%" class="kw-sub-option__badge-img" loading="lazy">
       {% endif %}
-      {% if shipping_badge != blank %}
-        <span class="kw-sub-option__badge kw-sub-option__badge--ship">{{ shipping_badge }}</span>
+      {% if free_shipping %}
+        <img src="{{ 'free-shipping-icon.svg' | asset_url }}" alt="Free Shipping" width="100%" height="100%" class="kw-sub-option__badge-img" loading="lazy">
       {% endif %}
     </div>
   </div>

@@ -24,20 +24,32 @@
     {% endif %}
 
     <div class="kw-logo-carousel__marquee">
-      <div class="kw-logo-carousel__track">
-        {%- comment -%} Set 1 — uses kw-logo-item snippet per block {%- endcomment -%}
-        <div class="kw-logo-carousel__items">
-          {% for block in section.blocks %}
-            <div {{ block.shopify_attributes }}>
-              {% render 'kw-logo-item', logo: block.settings.logo, alt_text: block.settings.alt_text, link: block.settings.link %}
+      <div class="kw-logo-carousel__wrapper">
+        {%- comment -%}
+          Horizon-style marquee: content repeated enough times to guarantee
+          fill, then the whole thing is cloned. Animation shifts -50% for
+          a seamless infinite loop.
+        {%- endcomment -%}
+        <div class="kw-logo-carousel__content">
+          {% for i in (1..4) %}
+            <div class="kw-logo-carousel__set" {% if i > 1 %}aria-hidden="true"{% endif %}>
+              {% for block in section.blocks %}
+                <div {% if i == 1 %}{{ block.shopify_attributes }}{% endif %}>
+                  {% render 'kw-logo-item', logo: block.settings.logo, alt_text: block.settings.alt_text, link: block.settings.link %}
+                </div>
+              {% endfor %}
             </div>
           {% endfor %}
         </div>
-        {%- comment -%} Set 2 — duplicate for seamless infinite loop {%- endcomment -%}
-        <div class="kw-logo-carousel__items" aria-hidden="true">
-          {% for block in section.blocks %}
-            <div>
-              {% render 'kw-logo-item', logo: block.settings.logo, alt_text: block.settings.alt_text, link: block.settings.link %}
+        {%- comment -%} Clone for seamless loop {%- endcomment -%}
+        <div class="kw-logo-carousel__content" aria-hidden="true">
+          {% for i in (1..4) %}
+            <div class="kw-logo-carousel__set">
+              {% for block in section.blocks %}
+                <div>
+                  {% render 'kw-logo-item', logo: block.settings.logo, alt_text: block.settings.alt_text, link: block.settings.link %}
+                </div>
+              {% endfor %}
             </div>
           {% endfor %}
         </div>
@@ -130,10 +142,7 @@
         { "type": "logo", "settings": { "alt_text": "NBC" } },
         { "type": "logo", "settings": { "alt_text": "FOX" } },
         { "type": "logo", "settings": { "alt_text": "Vogue" } },
-        { "type": "logo", "settings": { "alt_text": "FOX" } },
-        { "type": "logo", "settings": { "alt_text": "Allure" } },
-        { "type": "logo", "settings": { "alt_text": "Better Homes & Gardens" } },
-        { "type": "logo", "settings": { "alt_text": "Vogue" } }
+        { "type": "logo", "settings": { "alt_text": "Better Homes & Gardens" } }
       ]
     }
   ]

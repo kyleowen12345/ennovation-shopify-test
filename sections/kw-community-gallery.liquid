@@ -25,7 +25,8 @@
         {% render 'kw-social-link',
           platform: 'instagram',
           handle: section.settings.instagram_handle,
-          link: section.settings.instagram_link
+          link: section.settings.instagram_link,
+          icon_color: section.settings.highlight_color
         %}
       {% endif %}
       {% if section.settings.facebook_handle != blank %}
@@ -33,7 +34,8 @@
         {% render 'kw-social-link',
           platform: 'facebook',
           handle: section.settings.facebook_handle,
-          link: section.settings.facebook_link
+          link: section.settings.facebook_link,
+          icon_color: section.settings.highlight_color
         %}
       {% endif %}
     </div>
@@ -52,6 +54,34 @@
   </div>
 </section>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var grid = document.querySelector('.kw-community__grid');
+    if (!grid) return;
+
+    var isDown = false;
+    var startX;
+    var scrollLeft;
+
+    grid.addEventListener('mousedown', function (e) {
+      isDown = true;
+      startX = e.pageX - grid.offsetLeft;
+      scrollLeft = grid.scrollLeft;
+    });
+
+    grid.addEventListener('mouseleave', function () { isDown = false; });
+    grid.addEventListener('mouseup', function () { isDown = false; });
+
+    grid.addEventListener('mousemove', function (e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - grid.offsetLeft;
+      var walk = (x - startX) * 2;
+      grid.scrollLeft = scrollLeft - walk;
+    });
+  });
+</script>
+
 {% schema %}
 {
   "name": "KW Community Gallery",
@@ -61,7 +91,7 @@
     {
       "type": "text",
       "id": "heading_accent",
-      "label": "Accent text (italic pink)",
+      "label": "Accent text (italic)",
       "default": "JOIN"
     },
     {
@@ -98,7 +128,13 @@
     },
     {
       "type": "header",
-      "content": "Background"
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight color (accent text + social icons)",
+      "default": "#C9A89A"
     },
     {
       "type": "color",

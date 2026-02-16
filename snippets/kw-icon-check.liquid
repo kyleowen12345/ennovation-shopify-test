@@ -2,10 +2,10 @@
   Renders a green circled checkmark SVG.
 
   Usage: {% render 'kw-icon-check' %}
-  Params: size (default 20), color (default #6B8F63)
+  Params: size (default 21), color (default #A0B096)
 {%- endcomment -%}
 
-<svg class="kw-icon-check" width="{{ size | default: 20 }}" height="{{ size | default: 20 }}" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <circle cx="10" cy="10" r="9" stroke="{{ color | default: '#6B8F63' }}" stroke-width="1.2"/>
-  <path d="M6 10L9 13L14 7" stroke="{{ color | default: '#6B8F63' }}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<svg class="kw-icon-check" width="{{ size | default: 21 }}" height="{{ size | default: 21 }}" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M19.3333 9.32858V10.1719C19.3322 12.1486 18.6921 14.072 17.5086 15.6553C16.325 17.2385 14.6613 18.3967 12.7657 18.9572C10.8701 19.5176 8.84416 19.4503 6.98993 18.7653C5.13571 18.0802 3.5526 16.8142 2.47671 15.1559C1.40083 13.4976 0.889809 11.536 1.01987 9.56353C1.14993 7.5911 1.91411 5.71355 3.19842 4.2109C4.48274 2.70825 6.21839 1.66101 8.14651 1.22538C10.0746 0.789747 12.0919 0.989056 13.8975 1.79358" stroke="{{ color | default: '#A0B096' }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19.3307 2.83594L10.1641 12.0118L7.41406 9.26177" stroke="{{ color | default: '#A0B096' }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

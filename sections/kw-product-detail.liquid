@@ -2,7 +2,10 @@
 
 {%- assign product = all_products[section.settings.product] -%}
 
-<section class="kw-pdp" {{ section.shopify_attributes }}>
+<section class="kw-pdp" style="
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+" {{ section.shopify_attributes }}>
   <div class="kw-pdp__container">
 
     {%- comment -%} LEFT — Image Gallery {%- endcomment -%}
@@ -27,7 +30,6 @@
 
       <div class="kw-pdp__thumbs">
         {% if product != blank %}
-          {%- comment -%} Auto-pull from product media {%- endcomment -%}
           {% for media in product.media %}
             {% if media.media_type == 'image' %}
               <div class="kw-pdp__thumb{% if forloop.first %} kw-pdp__thumb--active{% endif %}" data-thumb data-thumb-src="{{ media | image_url: width: 800 }}">
@@ -36,7 +38,6 @@
             {% endif %}
           {% endfor %}
         {% else %}
-          {%- comment -%} Fallback to manual thumbnail blocks {%- endcomment -%}
           {% for block in section.blocks %}
             {% if block.type == 'thumbnail' %}
               <div class="kw-pdp__thumb{% if forloop.first %} kw-pdp__thumb--active{% endif %}" data-thumb data-thumb-src="{{ block.settings.image | image_url: width: 800 }}" {{ block.shopify_attributes }}>
@@ -92,7 +93,7 @@
           <div class="kw-pdp__about-body" data-collapsible-body>
       {% endif %}
 
-      {%- comment -%} Feature bullets — using kw-feature-item snippet {%- endcomment -%}
+      {%- comment -%} Feature bullets {%- endcomment -%}
       <div class="kw-pdp__features">
         {% for block in section.blocks %}
           {% if block.type == 'feature' %}
@@ -111,7 +112,7 @@
         </div>
       {% endif %}
 
-      {%- comment -%} Subscription tiers — using kw-subscription-option snippet {%- endcomment -%}
+      {%- comment -%} Subscription tiers {%- endcomment -%}
       <div class="kw-pdp__subs">
         {% for block in section.blocks %}
           {% if block.type == 'subscription' %}
@@ -122,7 +123,7 @@
                 price: block.settings.price,
                 active: block.settings.is_default,
                 save_badge: block.settings.save_badge,
-                shipping_badge: block.settings.shipping_badge
+                free_shipping: block.settings.free_shipping
               %}
             </div>
           {% endif %}
@@ -299,6 +300,30 @@
       "id": "shipping_line_2",
       "label": "Shipping line 2",
       "default": "Buy Now and Get it by Friday, June 7"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
     }
   ],
   "blocks": [
@@ -362,12 +387,13 @@
         {
           "type": "text",
           "id": "save_badge",
-          "label": "Save badge"
+          "label": "Save badge text"
         },
         {
-          "type": "text",
-          "id": "shipping_badge",
-          "label": "Shipping badge"
+          "type": "checkbox",
+          "id": "free_shipping",
+          "label": "Free shipping",
+          "default": false
         }
       ]
     }
@@ -389,8 +415,8 @@
         { "type": "feature", "settings": { "label": "Refreshing Scent:", "description": "A spa-like fragrance that uplifts your senses without overpowering artificial scents" } },
         { "type": "subscription", "settings": { "name": "Single Bottle", "price": "$34.99", "is_default": true } },
         { "type": "subscription", "settings": { "name": "1-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$29.99", "save_badge": "save over 14%" } },
-        { "type": "subscription", "settings": { "name": "2-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$55.00", "save_badge": "save over 20%", "shipping_badge": "FREE SHIPPING" } },
-        { "type": "subscription", "settings": { "name": "3-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$78.00", "shipping_badge": "FREE SHIPPING" } }
+        { "type": "subscription", "settings": { "name": "2-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$55.00", "save_badge": "save over 20%", "free_shipping": true } },
+        { "type": "subscription", "settings": { "name": "3-Bottle Monthly", "detail": "pause or cancel at any time", "price": "$78.00", "free_shipping": true } }
       ]
     }
   ]
