@@ -1,0 +1,33 @@
+{%- comment -%}
+  Renders a press/media logo with optional link.
+
+  Usage:
+    {% render 'kw-logo-item', logo: block.settings.logo, alt_text: block.settings.alt_text, link: block.settings.link %}
+
+  Params:
+    - logo: image object from image_picker
+    - alt_text: alt text string
+    - link: optional URL
+{%- endcomment -%}
+
+{% if logo != blank %}
+  {% if link != blank %}
+    <a href="{{ link }}" class="kw-logo-item" target="_blank" rel="noopener">
+      <img
+        src="{{ logo | image_url: width: 200 }}"
+        alt="{{ alt_text | default: 'Press logo' }}"
+        class="kw-logo-item__img"
+        loading="lazy"
+      >
+    </a>
+  {% else %}
+    <div class="kw-logo-item">
+      <img
+        src="{{ logo | image_url: width: 200 }}"
+        alt="{{ alt_text | default: 'Press logo' }}"
+        class="kw-logo-item__img"
+        loading="lazy"
+      >
+    </div>
+  {% endif %}
+{% endif %}
