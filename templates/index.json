@@ -61,7 +61,7 @@
             "detail": "pause or cancel at any time",
             "price": "$34.99",
             "is_default": true,
-            "save_badge": false,
+            "save_text": "",
             "free_shipping": false
           }
         },
@@ -72,8 +72,8 @@
             "detail": "pause or cancel at any time",
             "price": "$29.99",
             "is_default": false,
-            "save_badge": true,
-            "free_shipping": true
+            "save_text": "Save 14%",
+            "free_shipping": false
           }
         },
         "subscription_pHzb8m": {
@@ -83,7 +83,7 @@
             "detail": "pause or cancel at any time",
             "price": "$55.00",
             "is_default": false,
-            "save_badge": true,
+            "save_text": "Save 20%",
             "free_shipping": true
           }
         },
@@ -94,7 +94,7 @@
             "detail": "pause or cancel at any time",
             "price": "$78.00",
             "is_default": false,
-            "save_badge": true,
+            "save_text": "",
             "free_shipping": true
           }
         },
